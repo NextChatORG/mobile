@@ -2,6 +2,13 @@
 
 ## Unreleased
 
+## 10/02/2021
+-   Add register and login on submit action.
+-   Add `UserAccount` model.
+-   Add `sqlite`.
+-   Add `requests` utils.
+-   Add `settings.dart` file.
+
 ## 04/02/2021
 -   Remove `Hero` widgets.
 -   Add internalization (`en` and `es`).

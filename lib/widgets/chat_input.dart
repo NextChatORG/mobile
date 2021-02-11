@@ -7,12 +7,15 @@ class ChatInput extends StatelessWidget {
       {Key key,
       this.type = ChatInputType.text,
       @required this.text,
-      this.margin = const EdgeInsets.all(0.0)})
+      this.margin = const EdgeInsets.all(0.0),
+      @required this.onChanged})
       : super(key: key);
 
   final ChatInputType type;
   final String text;
   final EdgeInsetsGeometry margin;
+
+  final void Function(String text) onChanged;
 
   @override
   Widget build(BuildContext context) {
@@ -25,6 +28,7 @@ class ChatInput extends StatelessWidget {
                 EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
             labelText: this.text,
             border: OutlineInputBorder()),
+        onChanged: this.onChanged,
       ),
     );
   }

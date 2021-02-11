@@ -1,6 +1,8 @@
 {
     "loader_message": "Connect with someone instantly!",
 
+    "server_down_error": "The server is down!",
+
     "form_username": "Username",
     "form_password": "Password",
 
@@ -8,10 +10,29 @@
     "login_forgot_account": "Did you forget your password?",
     "login_submit": "Sign in",
 
+    "login_error_0": "You must enter the username.",
+    "login_error_1": "You must enter the password.",
+    "login_error_2": "The username does not exist.",
+    "login_error_3": "The password is incorrect.",
+    "login_success": "You sign in your account successfully!",
+
     "register_top_button": "Sign in",
     "register_repeat_password": "Repeat the password",
-    "register_captcha": "Captcha: How much is 2 + 2?",
+    "register_captcha": "Write here the code in the image",
     "register_submit": "Sign up",
+
+    "register_error_0": "You must enter the username.",
+    "register_error_1": "The username must be between 4 and 15 characteres.",
+    "register_error_2": "You must enter the password.",
+    "register_error_2_1": "You must repeat the password.",
+    "register_error_2_2": "Passwords do not match.",
+    "register_error_3": "The password must be between 8 and 40 characteres.",
+    "register_error_4": "The username already exists.",
+    "register_error_5": "Unknown error.",
+    "register_success": "You create a new account succesfully!",
+
+    "register_captcha_empty": "You must enter the captcha answer.",
+    "register_captcha_incorrect": "The captcha answer is not correct.",
 
     "footer": "© NexChat 2021 ~ All rights reserved"
 }

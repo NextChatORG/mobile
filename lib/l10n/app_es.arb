@@ -1,6 +1,8 @@
 {
     "loader_message": "¡Conecta con alguien al instante!",
 
+    "server_down_error": "¡El servidor está apagado!",
+
     "form_username": "Nombre de usuario",
     "form_password": "Contraseña",
 
@@ -8,10 +10,29 @@
     "login_forgot_account": "¿Olvidaste tu contraseña?",
     "login_submit": "Ingresar",
 
+    "login_error_0": "Debes ingresar el nombre de usuario.",
+    "login_error_1": "Debes ingresar la contraseña.",
+    "login_error_2": "El nombre de usuario no existe.",
+    "login_error_3": "La contraseña es incorrecta.",
+    "login_success": "¡Has ingresado a tu cuenta exitosamente!",
+
     "register_top_button": "Inicia Sesión",
     "register_repeat_password": "Repite la contraseña",
-    "register_captcha": "Captcha: ¿Cuánto es 2 + 2?",
+    "register_captcha": "Escribe aquí el código de la imagen",
     "register_submit": "Finalizar",
 
+    "register_error_0": "Debes ingresar el nombre de usuario.",
+    "register_error_1": "El nombre de usuario debe tener entre 4 y 15 caracteres.",
+    "register_error_2": "Debes ingresar la contraseña.",
+    "register_error_2_1": "Debes repetir la contraseña.",
+    "register_error_2_2": "Las contraseñas no coinciden.",
+    "register_error_3": "La contraseña debe tener entre 8 y 40 caracteres.",
+    "register_error_4": "El nombre de usuario ya está en uso.",
+    "register_error_5": "Error desconocido.",
+    "register_success": "¡Has creado una nueva cuenta exitosamente!",
+
+    "register_captcha_empty": "Debes ingresar la respuesta del captcha.",
+    "register_captcha_incorrect": "La respuesta del captcha no es correcta.",
+    
     "footer": "© NexChat 2021 ~ Todos los derechos reservados"
 }

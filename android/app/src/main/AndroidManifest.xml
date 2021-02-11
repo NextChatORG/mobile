@@ -2,7 +2,8 @@
     package="org.nextchat.mobile">
    <application
         android:label="NextChat"
-        android:icon="@mipmap/ic_launcher">
+        android:icon="@mipmap/ic_launcher"
+        android:usesCleartextTraffic="true">
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"

@@ -1,8 +1,9 @@
-import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:nextchat/pages/login.dart';
 import 'package:nextchat/widgets/nextchat.dart';
+import 'package:nextchat/database.dart';
+import 'package:nextchat/pages/login.dart';
+import 'package:nextchat/pages/home.dart';
 
 class LoaderPage extends StatefulWidget {
   @override
@@ -10,14 +11,25 @@ class LoaderPage extends StatefulWidget {
 }
 
 class _LoaderPageState extends State<LoaderPage> {
+  final database = DatabaseHelper.instance;
+
   @override
   void initState() {
     super.initState();
 
-    Timer(
-        Duration(seconds: 1),
-        () => Navigator.pushReplacement(
-            context, MaterialPageRoute(builder: (_) => LoginPage())));
+    database.getCurrentAccount().then((account) {
+      Widget page;
+      if (account == null) {
+        page = LoginPage();
+      } else {
+        page = HomePage();
+      }
+
+      Navigator.pushReplacement(
+          context, MaterialPageRoute(builder: (_) => page));
+    }).catchError((e) {
+      print('Database Error: $e');
+    });
   }
 
   @override
