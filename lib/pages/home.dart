@@ -56,7 +56,7 @@ class _HomePageState extends State<HomePage> {
           return Text('Error');
         },
       ),
-      bottomNavigationBar: BottomNavigation(),
+      bottomNavigationBar: BottomNavigation(currentIndex: 0),
     );
   }
 }

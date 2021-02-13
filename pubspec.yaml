@@ -28,5 +28,6 @@ flutter:
   generate: true
   uses-material-design: true
   assets:
-    - assets/icons/outline/
     - assets/icons/solid/
+    - assets/icons/outline/
+    - assets/images/
