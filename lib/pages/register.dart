@@ -192,7 +192,7 @@ class _RegisterPageState extends State<RegisterPage> {
                     ChatButton(
                       type: ChatButtonType.primary,
                       text: AppLocalizations.of(context).register_submit,
-                      onPressed: () async => await _onSubmit(),
+                      onPressed: _onSubmit,
                       margin: EdgeInsets.only(top: 16.0),
                     )
                   ],

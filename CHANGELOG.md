@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+## 12/02/2021
+-   Add `UserData` widget.
+-   Add `WebSocketHelper` class.
+
 ## 10/02/2021
 -   Add register and login on submit action.
 -   Add `UserAccount` model.

@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:nextchat/websocket.dart';
+import 'package:nextchat/widgets/auth/userdata.dart';
 import 'package:nextchat/widgets/chat_button.dart';
+import 'package:nextchat/widgets/bottom_navigation.dart';
 import 'package:nextchat/database.dart';
 import 'package:nextchat/models/user.dart';
 import 'package:nextchat/pages/loader.dart';
+import 'package:web_socket_channel/web_socket_channel.dart';
 
 class HomePage extends StatefulWidget {
   HomePage({Key key}) : super(key: key);
@@ -12,46 +16,47 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  final database = DatabaseHelper.instance;
+  final _database = DatabaseHelper.instance;
+  final _websockets = WebSocketHelper.instance;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: FutureBuilder<UserAccount>(
-          future: database.getCurrentAccount(),
-          builder: (BuildContext context, AsyncSnapshot<UserAccount> snapshot) {
-            if (snapshot.hasData) {
-              UserAccount me = snapshot.data;
-              String username = me.username;
+      body: UserData(
+        child: (UserAccount me, WebSocketChannel channel) {
+          String username = me.username;
 
-              return Container(
-                width: double.infinity,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text('@$username bienvenido!'),
-                    ChatButton(
-                      type: ChatButtonType.primary,
-                      text: 'Salir',
-                      onPressed: () async {
-                        await (await database.database).delete("user_accounts",
-                            where: "id = ?", whereArgs: [me.id]);
+          channel.sink.add('/connection $username');
 
-                        Navigator.pushReplacement(context,
-                            MaterialPageRoute(builder: (_) => LoaderPage()));
-                      },
-                    )
-                  ],
-                ),
-              );
-            } else if (snapshot.hasError) {
-              Navigator.pushReplacement(
-                  context, MaterialPageRoute(builder: (_) => LoaderPage()));
-            }
+          return Container(
+            width: double.infinity,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text('@$username bienvenido!'),
+                ChatButton(
+                  type: ChatButtonType.primary,
+                  text: 'Salir',
+                  onPressed: () async {
+                    _websockets.close();
 
-            return Center(child: Text('Bienvenido!'));
-          }),
+                    await (await _database.database).delete("user_accounts",
+                        where: "id = ?", whereArgs: [me.id]);
+
+                    Navigator.pushReplacement(context,
+                        MaterialPageRoute(builder: (_) => LoaderPage()));
+                  },
+                )
+              ],
+            ),
+          );
+        },
+        error: (UserDataError type) {
+          return Text('Error');
+        },
+      ),
+      bottomNavigationBar: BottomNavigation(),
     );
   }
 }
