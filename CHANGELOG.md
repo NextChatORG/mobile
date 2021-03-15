@@ -2,6 +2,11 @@
 
 ## Unreleased (0.1.0-alpha1)
 
+### 15/03/2021
+-   Add `HomeScreen` components.
+-   Add `NewPreviewComponent` and `UnreadMessagePreviewComponent` home components.
+-   Fix `LoggedWidget` scroll view.
+
 ### 12/03/2021
 -   Fix `SignInScreen` and `SignUpScreen` scroll issue.
 -   Add `LayoutComponent` to SignInOrSignUp screens.
