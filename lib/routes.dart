@@ -30,10 +30,8 @@ class Routes extends StatelessWidget {
         primarySwatch: Colors.indigo,
       ),
       debugShowCheckedModeBanner: false,
-      initialRoute: "/welcome",
+      initialRoute: "/home",
       routes: routes,
     );
   }
 }
-
-
