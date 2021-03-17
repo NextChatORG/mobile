@@ -25,7 +25,7 @@ adb reverse tcp:5000 tcp:5000
 
 ## Preview
 
-<img src="./preview/welcome_screen.jpg" width="200" /> <img src="./preview/sign_in_screen.jpg" width="200" /> <img src="./preview/sign_up_screen.jpg" width="200" /> <img src="./preview/home_screen.jpg" width="200" />
+<img src="./preview/welcome_screen.jpg" width="200" /> <img src="./preview/sign_in_screen.jpg" width="200" /> <img src="./preview/sign_up_screen.jpg" width="200" /> <img src="./preview/home_screen_1.jpg" width="200" /> <img src="./preview/home_screen_2.jpg" width="200" />
 
 ## Authors
 -   [@danielsolartech](https://github.com/danielsolartech) - Initial project
