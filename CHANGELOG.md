@@ -3,6 +3,9 @@
 ## Unreleased (0.1.0-alpha1)
 
 ### 17/03/2021
+-   Add `TextMessageComponent` to private messages components.
+-   Add `PrivateMessagesScreen` screen.
+-   Add `Message` class.
 -   Add `MessagesScreen` components.
 -   Add `MessagePreviewComponent` to messages component.
 -   Add `paddingBody` and `paddingHeader` properties to `LoggedWidget`.
