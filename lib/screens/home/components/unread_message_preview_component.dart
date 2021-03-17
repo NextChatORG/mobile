@@ -20,65 +20,71 @@ class UnreadMessagePreviewComponent extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.only(top: 8.0),
-      padding: EdgeInsets.only(top: 8.0, bottom: 8.0, left: 8.0, right: 16.0),
       decoration: BoxDecoration(
         color: Colors.grey[100],
         borderRadius: BorderRadius.all(Radius.circular(8.0)),
       ),
       clipBehavior: Clip.antiAlias,
-      child: InkWell(
-        splashColor: Colors.indigo,
-        onTap: () {},
-        child: Row(
-          children: [
-            Container(
-              margin: EdgeInsets.only(right: 8.0),
-              decoration: BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(23.0))),
-              clipBehavior: Clip.antiAlias,
-              child: Image.asset(avatar, width: 45, height: 45),
-            ),
-            Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Row(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      child: Material(
+        color: Colors.transparent,
+        child: InkWell(
+          splashColor: Colors.indigo[50],
+          highlightColor: Colors.transparent,
+          onTap: () {},
+          child: Container(
+            padding: EdgeInsets.only(top: 8.0, bottom: 8.0, left: 8.0, right: 16.0),
+            child: Row(
+              children: [
+                Container(
+                  margin: EdgeInsets.only(right: 8.0),
+                  decoration: BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(23.0))),
+                  clipBehavior: Clip.antiAlias,
+                  child: Image.asset(avatar, width: 45, height: 45),
+                ),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Row(
                         crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text(username, style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
-                          (messagesCount > 1) ? Container(
-                            margin: EdgeInsets.only(left: 4.0),
-                            width: 15,
-                            height: 15,
-                            decoration: BoxDecoration(
-                              color: Colors.indigo,
-                              borderRadius: BorderRadius.all(Radius.circular(20.0)),
-                            ),
-                            clipBehavior: Clip.antiAlias,
-                            child: Align(
-                              alignment: Alignment.center,
-                              child: Text(
-                                (messagesCount > 9) ? "+9" : messagesCount.toString(),
-                                style: TextStyle(color: Colors.white, fontSize: 10, fontWeight: FontWeight.bold),
-                              ),
-                            ),
-                          ) : Text(""),
+                          Row(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Text(username, style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
+                              (messagesCount > 1) ? Container(
+                                margin: EdgeInsets.only(left: 4.0),
+                                width: 15,
+                                height: 15,
+                                decoration: BoxDecoration(
+                                  color: Colors.indigo,
+                                  borderRadius: BorderRadius.all(Radius.circular(20.0)),
+                                ),
+                                clipBehavior: Clip.antiAlias,
+                                child: Align(
+                                  alignment: Alignment.center,
+                                  child: Text(
+                                    (messagesCount > 9) ? "+9" : messagesCount.toString(),
+                                    style: TextStyle(color: Colors.white, fontSize: 10, fontWeight: FontWeight.bold),
+                                  ),
+                                ),
+                              ) : Text(""),
+                            ],
+                          ),
+                          Text(date, style: TextStyle(color: Colors.indigo[300], fontSize: 12)),
                         ],
                       ),
-                      Text(date, style: TextStyle(color: Colors.indigo[300], fontSize: 12)),
+                      Container(
+                        margin: EdgeInsets.only(top: 1.5),
+                        child: Text(lastMessage, style: TextStyle(color: Colors.grey[600], fontSize: 12)),
+                      ),
                     ],
                   ),
-                  Container(
-                    margin: EdgeInsets.only(top: 1.5),
-                    child: Text(lastMessage, style: TextStyle(color: Colors.grey[600], fontSize: 12)),
-                  ),
-                ],
-              ),
+                ),
+              ],
             ),
-          ],
+          ),
         ),
       ),
     );
