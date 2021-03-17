@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:nextchat/core/messages/message.dart';
 import 'package:nextchat/screens/messages/components/message_preview_component.dart';
+import 'package:nextchat/screens/private_messages/private_messages_screen.dart';
 import 'package:nextchat/widgets/logged_widget.dart';
 import 'package:nextchat/widgets/navigation_widget.dart';
 
@@ -22,7 +24,68 @@ class _MessagesScreenState extends State<MessagesScreen> {
             unreadMessagesCount: 0,
             date: "17:00",
             lastMessage: "You: Okay! See you 👋🏻",
-            onClick: () {},
+            onClick: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) => PrivateMessagesScreen(
+                    avatar: "assets/images/fake_faces/friend_6.jpg",
+                    username: "Diana",
+                    lastOnline: "Last seen recently",
+                    messages: [
+                      Message(
+                        from: MessageFrom.Me,
+                        content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Dolor ornare dui blandit aliquam, commodo egestas vestibulum.",
+                        date: "Yesterday",
+                        seen: true,
+                      ),
+                      Message(
+                        from: MessageFrom.Other,
+                        content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Dolor ornare dui blandit aliquam, commodo egestas vestibulum.",
+                        date: "Yesterday",
+                        seen: true,
+                      ),
+                      Message(
+                        from: MessageFrom.Me,
+                        content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Dolor ornare dui blandit aliquam, commodo egestas vestibulum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Dolor ornare dui blandit aliquam, commodo egestas vestibulum.",
+                        date: "Yesterday",
+                        seen: true,
+                      ),
+                      Message(
+                        from: MessageFrom.Me,
+                        content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Dolor ornare dui blandit aliquam, commodo egestas vestibulum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Dolor ornare dui blandit aliquam, commodo egestas vestibulumaa.",
+                        date: "Yesterday",
+                        seen: true,
+                      ),
+                      Message(
+                        from: MessageFrom.Other,
+                        content: "ornare dui blandit aliquam, commodo",
+                        date: "Yesterday",
+                        seen: true,
+                      ),
+                      Message(
+                        from: MessageFrom.Other,
+                        content: "Hi!",
+                        date: "16:55",
+                        seen: true,
+                      ),
+                      Message(
+                        from: MessageFrom.Other,
+                        content: "I need to see you tomorrow",
+                        date: "16:56",
+                        seen: true,
+                      ),
+                      Message(
+                        from: MessageFrom.Other,
+                        content: "Can you be here?",
+                        date: "16:57",
+                        seen: true,
+                      ),
+                      Message(from: MessageFrom.Me, content: "Okay! See you 👋🏻", date: "17:00"),
+                    ],
+                  ),
+                ),
+              );
+            },
           ),
           MessagePreviewComponent(
             avatar: "assets/images/fake_faces/friend_1.jpg",
