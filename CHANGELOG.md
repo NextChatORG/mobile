@@ -2,6 +2,12 @@
 
 ## Unreleased (0.1.0-alpha1)
 
+### 17/03/2021
+-   Add `MessagesScreen` components.
+-   Add `MessagePreviewComponent` to messages component.
+-   Add `paddingBody` and `paddingHeader` properties to `LoggedWidget`.
+-   Fix `InkWell` splash color of `UnreadMessagePreviewComponent`.
+
 ### 15/03/2021
 -   Add `HomeScreen` components.
 -   Add `NewPreviewComponent` and `UnreadMessagePreviewComponent` home components.
