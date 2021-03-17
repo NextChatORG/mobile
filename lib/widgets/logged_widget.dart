@@ -1,19 +1,25 @@
 import 'package:flutter/material.dart';
 
 class LoggedWidget extends StatelessWidget {
+  final EdgeInsetsGeometry paddingBody;
+  final EdgeInsetsGeometry paddingHeader;
   final List<Widget> children;
 
-  LoggedWidget({Key key, this.children}) : super(key: key);
+  LoggedWidget({
+    Key key,
+    this.paddingBody = const EdgeInsets.symmetric(horizontal: 16.0),
+    this.paddingHeader = const EdgeInsets.symmetric(vertical: 8.0),
+    @required this.children,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: ListView(
-        padding: EdgeInsets.symmetric(horizontal: 24.0),
-        shrinkWrap: true,
+        padding: paddingBody,
         children: [
           Container(
-            padding: EdgeInsets.symmetric(vertical: 8.0),
+            padding: paddingHeader,
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
